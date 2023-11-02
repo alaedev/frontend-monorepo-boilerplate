@@ -1,9 +1,7 @@
 import { AxiosError, isAxiosError } from 'axios'
 import { ZodError } from 'zod'
 
-
-
-import { UserSchema } from '@context/Users/domain/User'
+import { User, UserSchema } from '@context/Users/domain/User'
 
 import { UserRepository } from '@context/Users/domain/UserRepository'
 
@@ -16,13 +14,11 @@ export const HttpUserRepository = (): UserRepository => {
   }
 }
 
-
 async function findById(id: string) {
   return await apiClient
-    .get<Location>(`/users/${id}`)
+    .get<User>(`/users/${id}`)
     .then(({ data }) => UserSchema.parse(data))
     .catch((error: AxiosError | ZodError) => {
       throw new Error(isAxiosError(error) ? 'InternalServerError' : 'ZodError')
     })
 }
-
