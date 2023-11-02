@@ -6,10 +6,8 @@ export const RefreshTokenHandler = ({ setInterval }: { setInterval: (timeRemaini
 
   useEffect(() => {
     if (session) {
-      // @ts-ignore
-      const timeRemaining = Math.round((session.accessTokenExpiry - 30 * 60 * 1000 - Date.now()) / 1000)
-
-      setInterval(timeRemaining > 0 ? timeRemaining : 0)
+      // const timeRemaining = Math.round((session.accessTokenExpiry - 30 * 60 * 1000 - Date.now()) / 1000)
+      // setInterval(timeRemaining > 0 ? timeRemaining : 0)
     }
   }, [session, setInterval])
 
