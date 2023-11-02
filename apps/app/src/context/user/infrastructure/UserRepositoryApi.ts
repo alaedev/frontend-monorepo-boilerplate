@@ -1,9 +1,9 @@
 import { AxiosError, isAxiosError } from 'axios'
 import { ZodError } from 'zod'
 
-import { User, UserSchema } from '@context/Users/domain/User'
+import { User, UserSchema } from '@context/user/domain/User'
 
-import { UserRepository } from '@context/Users/domain/UserRepository'
+import { UserRepository } from '@context/user/domain/UserRepository'
 
 import { ApiClient } from '@src/ApiClient'
 
